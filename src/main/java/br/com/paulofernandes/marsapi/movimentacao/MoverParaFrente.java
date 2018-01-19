@@ -1,34 +1,14 @@
 package br.com.paulofernandes.marsapi.movimentacao;
 
-import br.com.paulofernandes.marsapi.enums.Constantes;
+import br.com.paulofernandes.marsapi.flyweight.RoboDirecoes;
 import br.com.paulofernandes.marsapi.model.Robo;
 
-public class MoverParaFrente implements Movimentacao {
+public class MoverParaFrente implements IMovimentacao {
 
 	@Override
 	public void executar(Robo robo, int[] terreno) {
-		switch (robo.getDirecao()) {
-		case Constantes.O:
-
-			break;
-
-		case Constantes.L:
-
-			break;
-
-		case Constantes.N:
-
-			break;
-
-		case Constantes.S:
-
-			break;
-
-		default:
-			break;
-
-		}
-
+		final IMovimentacao movimentacao = RoboDirecoes.pegar(robo.getDirecao());
+		movimentacao.executar(robo, terreno);
 	}
 
 }

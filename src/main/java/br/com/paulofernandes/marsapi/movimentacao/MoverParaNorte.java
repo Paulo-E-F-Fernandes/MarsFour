@@ -2,14 +2,14 @@ package br.com.paulofernandes.marsapi.movimentacao;
 
 import br.com.paulofernandes.marsapi.model.Robo;
 
-public class MoverParaNorte implements Movimentacao {
+public class MoverParaNorte implements IMovimentacao {
 
 	@Override
 	public void executar(Robo robo, int[] terreno) {
-		if (robo.getCoordenadaY() == 0) {
-			System.out.println("não pode");
+		if (robo.getCoordenadaY() == terreno[1]) {
+			throw new IllegalArgumentException(String.format("O %s não pode se deslocar para o Norte! Já se encontra no limite do terreno!", robo.getNome()));
 		} else {
-			System.out.println("anda em y (y-1)");
+			robo.setCoordenadaY(robo.getCoordenadaY() + 1);
 		}
 	}
 

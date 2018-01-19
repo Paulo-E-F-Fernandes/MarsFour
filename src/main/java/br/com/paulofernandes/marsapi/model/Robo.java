@@ -1,27 +1,33 @@
 package br.com.paulofernandes.marsapi.model;
 
-import br.com.paulofernandes.marsapi.enums.Constantes;
+import org.springframework.stereotype.Component;
 
+import br.com.paulofernandes.marsapi.utils.Constantes;
+
+@Component
 public class Robo {
 
+	private final int coordenadaXInicial;
 	private int coordenadaX;
-
+	private final int coordenadaYInicial;
 	private int coordenadaY;
-
+	private final String direcaoInicial;
 	private String direcao;
+
+	private String nome = "M4rs Four";
 
 	public Robo() {
 		super();
-		this.coordenadaX = 0;
-		this.coordenadaY = 0;
-		this.direcao = Constantes.N;
+		this.coordenadaXInicial = this.coordenadaX = 0;
+		this.coordenadaYInicial = this.coordenadaY = 0;
+		this.direcaoInicial = this.direcao = Constantes.N;
 	}
 
 	public Robo(int coordenadaX, int coordenadaY, String direcao) {
 		super();
-		this.coordenadaX = coordenadaX;
-		this.coordenadaY = coordenadaY;
-		this.direcao = direcao;
+		this.coordenadaXInicial = this.coordenadaX = coordenadaX;
+		this.coordenadaYInicial = this.coordenadaY = coordenadaY;
+		this.direcaoInicial = this.direcao = direcao;
 	}
 
 	public int getCoordenadaX() {
@@ -48,8 +54,23 @@ public class Robo {
 		this.direcao = direcao;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public String posicaoAtual() {
 		return "(".concat(String.valueOf(coordenadaX)).concat(", ").concat(String.valueOf(coordenadaY)).concat(", ").concat(direcao).concat(")");
+	}
+
+	public String resetarPosicao() {
+		coordenadaX = coordenadaXInicial;
+		coordenadaY = coordenadaYInicial;
+		direcao = direcaoInicial;
+		return posicaoAtual();
 	}
 
 }
