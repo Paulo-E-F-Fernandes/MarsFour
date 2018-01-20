@@ -3,7 +3,7 @@ package br.com.paulofernandes.marsapi;
 import org.junit.Test;
 
 import br.com.paulofernandes.marsapi.enums.DirecaoEnum;
-import br.com.paulofernandes.marsapi.model.Robo;
+import br.com.paulofernandes.marsapi.models.Robo;
 import br.com.paulofernandes.marsapi.movimentacao.RotacionarDireita;
 import br.com.paulofernandes.marsapi.movimentacao.RotacionarEsquerda;
 import br.com.paulofernandes.marsapi.utils.Constantes;

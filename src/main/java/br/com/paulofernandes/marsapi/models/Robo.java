@@ -1,4 +1,4 @@
-package br.com.paulofernandes.marsapi.model;
+package br.com.paulofernandes.marsapi.models;
 
 import org.springframework.stereotype.Component;
 
