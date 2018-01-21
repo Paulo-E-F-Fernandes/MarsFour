@@ -11,6 +11,10 @@ import br.com.paulofernandes.marsapi.utils.Constantes;
 
 public class RoboMovimentos {
 
+	private RoboMovimentos() {
+		throw new UnsupportedOperationException("RoboMovimentos UnsupportedOperationException");
+	}
+
 	private static Map<String, IMovimentacao> movimentos = new HashMap<>(3);
 
 	static {

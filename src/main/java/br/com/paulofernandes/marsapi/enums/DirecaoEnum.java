@@ -2,10 +2,10 @@ package br.com.paulofernandes.marsapi.enums;
 
 public enum DirecaoEnum {
 
-	OESTE("O", "N", "S"),
-	LESTE("L", "S", "N"),
-	NORTE("N", "L", "O"),
-	SUL("S", "O", "L");
+	OESTE("W", "N", "S"),
+	LESTE("E", "S", "N"),
+	NORTE("N", "E", "W"),
+	SUL("S", "W", "E");
 
 	private final String posicao;
 	private final String rotacaoDireita;

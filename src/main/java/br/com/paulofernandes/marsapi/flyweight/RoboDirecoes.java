@@ -12,11 +12,15 @@ import br.com.paulofernandes.marsapi.utils.Constantes;
 
 public class RoboDirecoes {
 
+	private RoboDirecoes() {
+		throw new UnsupportedOperationException("RoboDirecoes UnsupportedOperationException");
+	}
+
 	private static Map<String, IMovimentacao> direcoes = new HashMap<>(4);
 
 	static {
-		direcoes.put(Constantes.L, new MoverParaLeste());
-		direcoes.put(Constantes.O, new MoverParaOeste());
+		direcoes.put(Constantes.E, new MoverParaLeste());
+		direcoes.put(Constantes.W, new MoverParaOeste());
 		direcoes.put(Constantes.N, new MoverParaNorte());
 		direcoes.put(Constantes.S, new MoverParaSul());
 	}

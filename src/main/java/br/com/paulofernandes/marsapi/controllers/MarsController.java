@@ -33,6 +33,7 @@ public class MarsController extends BaseController {
 
 	@PostMapping(path = "/rest/mars/{caminho}")
 	public String movimentar(@PathVariable("caminho") String caminho) {
+		roboService.resetarPosicao();
 		return roboService.movimentar(terreno, caminho);
 	}
 

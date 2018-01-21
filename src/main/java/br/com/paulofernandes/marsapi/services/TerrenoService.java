@@ -1,6 +1,8 @@
 package br.com.paulofernandes.marsapi.services;
 
-import org.assertj.core.util.Arrays;
+
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,9 +26,9 @@ public class TerrenoService {
 		if (terrenoNovo.getX() >= robo.getCoordenadaX() && terrenoNovo.getY() >= robo.getCoordenadaY()) {
 			terreno.setX(terrenoNovo.getX());
 			terreno.setY(terrenoNovo.getY());
-			return messageService.getMessage("terreno.tamanho", Arrays.array(terreno.getX(), terreno.getY()));
+			return messageService.getMessage("terreno.tamanho", Arrays.asList(terreno.getX(), terreno.getY()).toArray());
 		} else {
-			Object[] args = Arrays.array(terrenoNovo.getX(), terrenoNovo.getY(), robo.getNome(), robo.posicaoAtual());
+			Object[] args = Arrays.asList(terrenoNovo.getX(), terrenoNovo.getY(), robo.getNome(), robo.posicaoAtual()).toArray();
 			throw new IllegalArgumentException(messageService.getMessage("terreno.menor.posicao.robo", args));
 		}
 	}

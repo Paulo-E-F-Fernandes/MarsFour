@@ -1,6 +1,7 @@
 package br.com.paulofernandes.marsapi.services;
 
-import org.assertj.core.util.Arrays;
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -27,15 +28,15 @@ public class RoboService {
 	}
 
 	public String apresentar() {
-		return messageService.getMessage("robo.apresentacao", Arrays.array(robo.getNome(), robo.posicaoAtual()));
+		return messageService.getMessage("robo.apresentacao", Arrays.asList(robo.getNome(), robo.posicaoAtual()).toArray());
 	}
 
 	public String renomear(String nome) {
 		if (nome != null && !nome.isEmpty()) {
 			robo.setNome(nome);
-			return messageService.getMessage("robo.nome.novo", Arrays.array(robo.getNome()));
+			return messageService.getMessage("robo.nome.novo", Arrays.asList(robo.getNome()).toArray());
 		} else {
-			throw new IllegalArgumentException(messageService.getMessagem("robo.nome.invalido"));
+			throw new IllegalArgumentException(messageService.getMessage("robo.nome.invalido"));
 		}
 	}
 
@@ -47,10 +48,14 @@ public class RoboService {
 			movimentacao = RoboMovimentos.pegar(comando.toUpperCase());
 
 			if (movimentacao == null) {
-				throw new IllegalArgumentException(messageService.getMessage("robo.comando.invalido", Arrays.array(comando)));
+				throw new IllegalArgumentException(messageService.getMessage("robo.comando.invalido", Arrays.asList(comando).toArray()));
 			}
 
-			movimentacao.executar(robo, terreno);
+			try {
+				movimentacao.executar(robo, terreno);
+			} catch (IllegalArgumentException e) {
+				throw new IllegalArgumentException(messageService.getMessage("movimentacao.erro", Arrays.asList(robo.getNome(), e.getMessage()).toArray()));
+			}
 		}
 
 		return robo.posicaoAtual();

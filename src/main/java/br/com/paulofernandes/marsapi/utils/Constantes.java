@@ -7,17 +7,17 @@ public final class Constantes {
 	}
 
 	/* Strings */
-	public static final String L = "L";
+	public static final String E = "E";
 
 	public static final String LESTE = "leste";
+
+	public static final String L = "L";
 
 	public static final String M = "M";
 
 	public static final String N = "N";
 
 	public static final String NORTE = "norte";
-
-	public static final String O = "O";
 
 	public static final String OESTE = "oeste";
 
@@ -26,5 +26,7 @@ public final class Constantes {
 	public static final String S = "S";
 
 	public static final String SUL = "sul";
+
+	public static final String W = "W";
 
 }

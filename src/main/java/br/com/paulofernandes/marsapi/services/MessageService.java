@@ -13,12 +13,8 @@ public class MessageService {
 	@Autowired
 	private MessageSource messageSource;
 
-	public String getMessagem(String key) {
+	public String getMessage(String key) {
 		return this.getMessage(key, null);
-	}
-
-	public String getMessagem(String key, String[] args) {
-		return this.getMessage(key, args);
 	}
 
 	public String getMessage(String key, Object[] args) {
